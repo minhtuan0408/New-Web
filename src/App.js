@@ -3,19 +3,21 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseCounter, decreaseCounter } from './redux/action/counterAction';
 import MyComponent from './components/MyComponent';
+import React from 'react';
 
-const App = () => {
-  const count = useSelector(state => state.counter.count);
-  const dispatch = useDispatch();
+class App extends React.Component {
+  render(){return (    
+      <div> 
+        <h1>Counter Example</h1>
+        <MyComponent>
+            <h1>Ví dụ</h1>
+        </MyComponent>
+      </div>
+      );
+  }
+}
 
-  return (
-    <div> 
-      <h1>Counter Example</h1>
-      <MyComponent>
-          <h1>Ví dụ</h1>
-      </MyComponent>
-    </div>
-    
+
    
     // <div className="App">
     //   <header className="App-header">
@@ -28,7 +30,7 @@ const App = () => {
     //     <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
     //   </header>
     // </div>
-  );
-}
+  
+
 
 export default App;
