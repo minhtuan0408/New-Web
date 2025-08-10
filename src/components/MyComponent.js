@@ -7,26 +7,36 @@ class MyComponent extends React.Component {
     state = {
         name: 'Bùi Minh Tuấn',
         age: 18,
-        address: 'Hà Nội'
+        address: 'Hà Nội',
+        luckyNumber: 7
     }
 
-    handleClick(event){
+    hoten = {
+        name: 'Ai đó',
+        age: 18,
+        address: 'Hà Nội',
+        luckyNumber: 7
+    }
+    handleClick = (event) => {
         console.log ("Button clicked!");
-        console.log(this.state.name);
         
+        this.setState({
+            luckyNumber: Math.floor(Math.random() * 100) + 1
+        })
+
+        console.log(this.state.name + "lucky number is: " + this.state.luckyNumber);
     }
 
     handleOnMoverOver(event){
-        console.log("Mouse over event!");
-        console.log(event);
+        // console.log("Đừng chạm vào tôi!", this.state.name , "dear!");
     }
     //JSX
     render() {
         return (    
             <div>
-                My name is {this.state.name} <br/>
-                <button onClick={this.handleClick}>Click Here</button> <br/>
-                <button onMouseOver={this.handleOnMoverOver}>handleOnMoverOver</button>
+                My name is {this.state.name} và con số may mắn là {this.state.luckyNumber} <br/>
+                <button onClick={this.handleClick}>Click Here</button>
+                <button onMouseOver={(event) => this.handleOnMoverOver(event)}>handleOnMoverOver</button>
             </div>
         );
     }
